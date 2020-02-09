@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue - simple JS files</title>
+    <link href="public/css/main.css" rel="stylesheet">
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vuex/dist/vuex.js"></script>
+    <script>
+        Vue.config.debug = true;
+        Vue.config.devtools = true;
+    </script>
+    <script src="public/js/hit.store.js"></script>
+    <script src="public/js/hit.service.js"></script>
+</head>
+<body>
+<div id="vue-app">
+    <h1>{{ message }}</h1>
+</div>
+<div class="v-cmp-text is-vue">
+    <text-component input-text="some one"></text-component>
+</div>
+<div class="v-cmp-text is-vue">
+    <text-component input-text="some two"></text-component>
+</div>
+<div class="v-cmp-parent is-vue">
+    <parent-component name="parent1" inline-template>
+        <div class="parent">
+            <h3>Parent {{ name }}</h3>
+            <div>
+                <button @click="onClickBtn('R')">R</button>
+                <button @click="onClickBtn('P')">P</button>
+                <button @click="onClickBtn('S')">S</button>
+            </div>
+            <h4>Store hits</h4>
+            <ul>
+                <li v-for="hit in storeHits">
+                    {{ hit.from }}: {{hit.val}}, {{hit.origin}}
+                </li>
+            </ul>
+            <h4>Service hits</h4>
+            <ul>
+                <li v-for="hit in serviceHits">
+                    {{ hit.from }}: {{hit.val}}
+                </li>
+            </ul>
+            <div class="v-cmp-player is-vue child">
+                <player-component name="Child" text="pink"></player-component>
+            </div>
+            <div class="v-cmp-history is-vue child">
+                <history-component></history-component>
+            </div>
+        </div>
+    </parent-component>
+</div>
+<div class="v-cmp-player is-vue">
+    <player-component name="Joe" text="red"></player-component>
+</div>
+<div class="v-cmp-player is-vue">
+    <player-component name="Tom" text="blue"></player-component>
+</div>
+<div class="v-cmp-player is-vue">
+    <player-component name="Computer" text="green"></player-component>
+</div>
+<div class="v-cmp-history is-vue">
+    <history-component></history-component>
+</div>
+<script src="public/js/text.component.js"></script>
+<script src="public/js/player.component.js"></script>
+<script src="public/js/history.component.js"></script>
+<script src="public/js/parent.component.js"></script>
+<script src="public/js/vue-app.js"></script>
+<script src="public/js/vue.mounter.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+.player, .parent, .history {
+    border: 1px solid black;
+    padding: 15px;
+    display: inline-block;
+}
+.v-cmp-player {
+    display: inline-block;
+}
